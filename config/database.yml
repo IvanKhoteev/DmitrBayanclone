@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: photo_contest_development
+
+test:
+  <<: *default
+  database: photo_contest_test
+
+production:
+  <<: *default
+  database: photo_contest_production
+  username: photo_contest
+  password: <%= ENV['PHOTO_CONTEST_DATABASE_PASSWORD'] %>
